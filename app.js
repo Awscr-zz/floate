@@ -307,8 +307,16 @@ const UIController = (function() {
   };
 })();
 
+// STORAGE CONTROLLER MODULE
+const StorageController = function() {
+  // Public methods
+  return {
+    storeItem: function() {}
+  };
+};
+
 //// APP CONTROLLER MODULE - Conjuncts The budgetController & UIController Modules
-const controller = (function(budgetCtrl, UICtrl) {
+const controller = (function(budgetCtrl, UICtrl, StorageController) {
   // Function - Set Up Event Listeners
   const setUpEventListeners = () => {
     const DOM = UICtrl.getDOMstrings();
@@ -419,7 +427,7 @@ const controller = (function(budgetCtrl, UICtrl) {
       setUpEventListeners();
     }
   };
-})(budgetController, UIController);
+})(budgetController, UIController, StorageController);
 
 // Initialize Program
 controller.init();
